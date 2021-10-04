@@ -14,76 +14,80 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-const button = document.getElementById('btn');
-const buttonclose = document.getElementById('swa2');
+    const button = document.getElementById('btn');
+    const buttonclose = document.getElementById('swa2');
+
+    function accessType(arrAccess, arrStart, arrResult){ //Функция проверки допустимых значений
+        for (let i = 0; i < arrAccess.length; i++){
+            if((arrResult[i] === '') || (arrAccess[i] === '') || (arrStart[i] === '') ){ // Исправить проверку на пустое значение
+                alert("Не правильно указаны параметры объема кувшина. Заполните все поля...");
+                throw new Error();
+            }
+        }
+    }
 
 
-function access(arrAccess, arrStart, arrResult){ //Функция проверки допустимых значений
+    function access(arrAccess, arrStart, arrResult){ //Функция проверки допустимых значений
     
-    for (let i = 0; i < arrAccess.length; i++){
-        if(arrStart[i]>arrAccess[i]){
-        alert("Недпустимое значение литров, емкость одного из кувшина меньше, чем вы пытаетесь налить")
-        return false;
+        for (let i = 0; i < arrAccess.length; i++){
+
+            if(arrStart[i]>arrAccess[i]){
+                alert("Недпустимое значение литров, емкость одного из кувшина меньше, чем вы пытаетесь налить")
+                throw new Error();
+            }
+
+            if(arrResult[i]>arrAccess[i]){
+                alert("Недпустимое значение литров, емкость одного из кувшина меньше, чем вы хотите налить в него")
+                throw new Error();
+            }
+
+            if(typeof arrResult[i] != 'number' || typeof arrAccess[i] != 'number' || typeof arrStart[i] != 'number'){
+                alert("Не правильно указаны параметры объема кувшина, укажите числовые параметры объема кувшина в литрах");
+                throw new Error();
+            }
+
+
+            if((arrResult[i] < 0) || (arrAccess[i] < 0) || (arrStart[i] < 0)){
+                alert("Не правильно указаны параметры объема кувшина. Объем не может быть отрицательным...");
+                throw new Error();
+            }
         }
 
-        if(arrResult[i]>arrAccess[i]){
-        alert("Недпустимое значение литров, емкость одного из кувшина меньше, чем вы хотите налить в него")
-        return false;
+        if(arrResult.length != 3 ||arrStart.length != 3 || arrAccess.length != 3){
+            alert("Указано большее/меньшее количество кувшинов. Повторите попытку, указав 3 кувшина");
+            throw new Error();
         }
 
-        if(typeof arrResult[i] != 'number' || typeof arrAccess[i] != 'number' || typeof arrStart[i] != 'number'){
-        alert("Не правильно указаны параметры объема кувшина, укажите числовые параметры объема кувшина в литрах");
-        return false;
+        if(Array.isArray(arrAccess) != true || Array.isArray(arrStart) != true || Array.isArray(arrResult) != true) {
+            alert("Не верно указанны данные. Повторите попытку");
+            throw new Error();
         }
 
-        if((arrResult[i] === '') || (arrAccess[i] === '') || (arrStart[i] === '')){ // Исправить проверку на пустое значение
-            alert("Не правильно указаны параметры объема кувшина. Заполните все поля...");
-            return false;
-        }
-        if((arrResult[i] < 0) || (arrAccess[i] < 0) || (arrStart[i] < 0)){
-            alert("Не правильно указаны параметры объема кувшина. Объем не может быть отрицательным...");
-            return false;
-        }
+    
     }
 
-    if(arrResult.length != 3 ||arrStart.length != 3 || arrAccess.length != 3){
-    alert("Указано большее/меньшее количество кувшинов. Повторите попытку, указав 3 кувшина");
-    return false;
+    var b = document.getElementById('overlay');
+    function swa(){
+	    b.style.visibility = 'visible';
+	    b.style.opacity = '1';
+	    b.style.transition = 'all 0.7s ease-out 0s';
     }
 
-    if(Array.isArray(arrAccess) != true || Array.isArray(arrStart) != true || Array.isArray(arrResult) != true) {
-    alert("Не верно указанны данные. Повторите попытку");
-    return false;
+    function swa2(){
+	    b.style.visibility = 'hidden';
+	    b.style.opacity = '0';
+        window.location.reload();
     }
 
-    swa()
-}
 
-var b = document.getElementById('overlay');
-function swa(){
-	b.style.visibility = 'visible';
-	b.style.opacity = '1';
-	b.style.transition = 'all 0.7s ease-out 0s';
-}
-
-function swa2(){
-	b.style.visibility = 'hidden';
-	b.style.opacity = '0';
-    window.location.reload();
-}
+    buttonclose.addEventListener('click', () => {
+        swa2();
+    })
 
 
-
-
-buttonclose.addEventListener('click', () => {
-    swa2();
-})
-
-
-
-let result;
-let arrTableVariant = []
-function minimalOperationWaterJug(arrAllVolume, arrStartVolume, arrResultVolume){
+    let result;
+    let arrTableVariant = []
+    function minimalOperationWaterJug(arrAllVolume, arrStartVolume, arrResultVolume){
 
      //Матрица ходов
     let i,j //Переменная индексов цикла
@@ -170,65 +174,89 @@ function minimalOperationWaterJug(arrAllVolume, arrStartVolume, arrResultVolume)
                         else if((i>arrAllVolume[1]) & (arrTableVariant[i-arrAllVolume[1]][arrAllVolume[1]] == null)){arrTableVariant[i-arrAllVolume[1]][arrAllVolume[1]] = tempStep+1}
                     }
 
-                    if(j == arrAllVolume[1]){  //Правая часть матрицы
-                        if(arrTableVariant[arrAllVolume[0]][arrAllVolume[1]] == null){arrTableVariant[arrAllVolume[0]][arrAllVolume[1]] = tempStep+1}
-                        if(arrTableVariant[0][arrAllVolume[1]] == null){arrTableVariant[0][arrAllVolume[1]] = tempStep+1}
-                        if(arrTableVariant[i][0] == null){arrTableVariant[i][0] = tempStep+1}
+                        if(j == arrAllVolume[1]){  //Правая часть матрицы
+                            if(arrTableVariant[arrAllVolume[0]][arrAllVolume[1]] == null){arrTableVariant[arrAllVolume[0]][arrAllVolume[1]] = tempStep+1}
+                            if(arrTableVariant[0][arrAllVolume[1]] == null){arrTableVariant[0][arrAllVolume[1]] = tempStep+1}
+                            if(arrTableVariant[i][0] == null){arrTableVariant[i][0] = tempStep+1}
 
-                        if(i+arrAllVolume[1]<=arrAllVolume[0]){ 
-                            if(arrTableVariant[i+arrAllVolume[1]][0]){arrTableVariant[i+arrAllVolume[1]][0] = tempStep+1}
-                        }
-                        else if(i+arrAllVolume[1]>arrAllVolume[0]){
-                            if(arrTableVariant[arrAllVolume[0]][arrAllVolume[1]-(arrAllVolume[0]-i)] == null){arrTableVariant[arrAllVolume[0]][arrAllVolume[1]-(arrAllVolume[0]-i)] = tempStep+1}
+                            if(i+arrAllVolume[1]<=arrAllVolume[0]){ 
+                                if(arrTableVariant[i+arrAllVolume[1]][0]){arrTableVariant[i+arrAllVolume[1]][0] = tempStep+1}
+                            }
+                            else if(i+arrAllVolume[1]>arrAllVolume[0]){
+                                if(arrTableVariant[arrAllVolume[0]][arrAllVolume[1]-(arrAllVolume[0]-i)] == null){arrTableVariant[arrAllVolume[0]][arrAllVolume[1]-(arrAllVolume[0]-i)] = tempStep+1}
+                            }
                         }
                     }
                 }
-            }
 
-            if(i == arrAllVolume[0] & j == arrAllVolume[1]){ //Рекурсия, пока не заполнен каждый элемент
-                if(recAccess == false){
-                    tempStep++;
-                    recAccess = true;
-                    i = 0;
-                    j = 0;
+                if(i == arrAllVolume[0] & j == arrAllVolume[1]){ //Рекурсия, пока не заполнен каждый элемент
+                    if(recAccess == false){
+                        tempStep++;
+                        recAccess = true;
+                        i = 0;
+                        j = 0;
+                    }
                 }
-            }
-            
-        }   
-    }
-
-    console.log(arrTableVariant)
-    result = arrTableVariant[arrResultVolume[0]][arrResultVolume[1]];
-    console.log(result)
-}
-
-
-let table = document.querySelector('table');
-
-function fillTable(table, arr){
-    for(let i = 0; i < arr.length; i++){
-        let tr = document.createElement('tr');
-        for(let j = 0; j < arr[i].length; j++){
-            let td = document.createElement('td');
-            td.innerHTML = arr[i][j];
-            tr.appendChild(td);
+                
+            }   
         }
-        table.appendChild(tr);
+    
+        if(arrTableVariant[arrResultVolume[0]][arrResultVolume[1]] !== ''){
+            result = arrTableVariant[arrResultVolume[0]][arrResultVolume[1]];
+        }
+
+        else{
+            result = 'Нет решения'
+        }
     }
-}
 
 
-button.addEventListener('click', () => {
+    let table = document.querySelector('table');
 
-    let volumeOfJug = [+document.getElementById('arrAllVolume_1').value,+document.getElementById('arrAllVolume_2').value,+document.getElementById('arrAllVolume_3').value];   //Объем кувшинов
-    let volumeWaterOfJug = [+document.getElementById('arrStartVolume_1').value,+document.getElementById('arrStartVolume_2').value,+document.getElementById('arrStartVolume_3').value];     //Объем начального наполнения кувшинов
-    let resultVolumeWaterOfJug = [+document.getElementById('arrResultVolume_1').value,+document.getElementById('arrResultVolume_2').value,+document.getElementById('arrResultVolume_3').value];  //Результирующий объем, который нуобходимо получить
+    function fillTable(table, arr){
+        for(let i = 0; i < arr.length; i++){
+            let tr = document.createElement('tr');
+            for(let j = 0; j < arr[i].length; j++){
+                let td = document.createElement('td');
+                td.innerHTML = arr[i][j];
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    }
 
-    access(volumeOfJug, volumeWaterOfJug, resultVolumeWaterOfJug)
-    minimalOperationWaterJug(volumeOfJug, volumeWaterOfJug, resultVolumeWaterOfJug);
-    fillTable(table, arrTableVariant);
 
-    document.getElementById('result').innerHTML = "Требуется " + result + " операций(-ии), чтобы получить необходимое косичество объема в указанных кувшинах";
-})
+    button.addEventListener('click', () => {
+
+        let volumeOfJugType = [document.getElementById('arrAllVolume_1').value,document.getElementById('arrAllVolume_2').value,document.getElementById('arrAllVolume_3').value];   //Объем кувшинов
+        let volumeWaterOfJugType = [document.getElementById('arrStartVolume_1').value,document.getElementById('arrStartVolume_2').value,document.getElementById('arrStartVolume_3').value];     //Объем начального наполнения кувшинов
+        let resultVolumeWaterOfJugType = [document.getElementById('arrResultVolume_1').value,document.getElementById('arrResultVolume_2').value,document.getElementById('arrResultVolume_3').value];  //Результирующий объем, который нуобходимо получить
+        accessType(volumeOfJugType, volumeWaterOfJugType, resultVolumeWaterOfJugType);
+
+        
+        let volumeOfJug = [+document.getElementById('arrAllVolume_1').value,+document.getElementById('arrAllVolume_2').value,+document.getElementById('arrAllVolume_3').value];   //Объем кувшинов
+        let volumeWaterOfJug = [+document.getElementById('arrStartVolume_1').value,+document.getElementById('arrStartVolume_2').value,+document.getElementById('arrStartVolume_3').value];     //Объем начального наполнения кувшинов
+        let resultVolumeWaterOfJug = [+document.getElementById('arrResultVolume_1').value,+document.getElementById('arrResultVolume_2').value,+document.getElementById('arrResultVolume_3').value];  //Результирующий объем, который нуобходимо получить
+
+        access(volumeOfJug, volumeWaterOfJug, resultVolumeWaterOfJug);
+        minimalOperationWaterJug(volumeOfJug, volumeWaterOfJug, resultVolumeWaterOfJug);
+        
+        if(volumeOfJug[0]>30 || volumeOfJug[1]>30){
+            document.getElementById('ops').innerHTML = "Матрица слишком большая... Попробуйте указать меньший объем кувшинов, чтобы получить матрицу вариантов...";
+        }
+        else{
+            fillTable(table, arrTableVariant);
+        }
+
+        if(result == 'Нет решения'){
+            document.getElementById('result').innerHTML = "Нет решения. Указанный объем невозможно получить при заданных условиях"
+        }
+        else{
+            document.getElementById('result').innerHTML = "Требуется " + result + " операций(-ии), чтобы получить необходимое количество объема в указанных кувшинах";
+        }
+
+        swa();
+
+    })
 
 })
