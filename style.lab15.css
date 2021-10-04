@@ -5,10 +5,12 @@ html,body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(20, 25, 30);
 
+
 }
 .main{
     display: table;
     height:100%;
+
 }
 
 header{
@@ -25,9 +27,11 @@ footer{
     background:rgb(30, 37, 45);
 
     color: rgb(202, 209, 216);
-    width: 100%;
+    width: 99%;
+    margin: 0 auto;
+    border: 1px solid rgb(30, 37, 45);
+    border-radius: 20px;
     margin-bottom: 10px;
-
     
 }
 
@@ -139,15 +143,17 @@ input:valid {border-color: green;}
     transition: opacity 0.7s ease-in 0s;
 }
 .popup {
+    text-align: center;
     top: 10%;
     color:rgb(202, 209, 216);
     left: 0;
     right: 0;       
     font-size: 14px;
     margin: auto;
-    width: 80%;
+    width: 60%;
+    height: auto;
+    min-height: 300px;
     min-width: 200px;
-    max-width: 600px;
     position: absolute;
     padding: 15px 20px;
     border: 1px solid #666;
@@ -188,6 +194,7 @@ input:valid {border-color: green;}
 
 .tbl{
     border-color: rgb(202, 209, 216);
+    display: inline-block;
 }
 
 th {
@@ -197,4 +204,23 @@ th {
 td {
     background: rgb(78, 101, 113);
     padding: 10px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+img{
+    width: 50%;
+    height: auto;
+    padding-top: 5px;
+}
+
+.btn_sect{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
