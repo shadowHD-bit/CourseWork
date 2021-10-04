@@ -1,0 +1,200 @@
+html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(20, 25, 30);
+
+}
+.main{
+    display: table;
+    height:100%;
+}
+
+header{
+    height:100px;
+    background: rgb(30, 37, 45);
+    margin: 10px 10px 0 10px;
+    color: rgb(202, 209, 216);
+    border: 1px solid rgb(30, 37, 45);
+    border-radius: 20px;
+       
+}
+
+footer{
+    background:rgb(30, 37, 45);
+
+    color: rgb(202, 209, 216);
+    width: 100%;
+    margin-bottom: 10px;
+
+    
+}
+
+.main{
+    width:100%;
+}
+
+.mainnametask{
+    font-size: 20px;
+    text-align: center;
+    font-size: 30px
+}
+
+.heading{
+    text-align: center;
+    font-size: 30px;
+    border: 2px solid rgb(30, 37, 45);
+    background-color: rgb(78, 101, 113);
+    border-radius: 20px;
+}
+
+.descriptiontask{
+    font-size: 20px;
+}
+
+.maindescriotion{
+    padding: 0 60px 20px 60px;
+    border: 2px solid rgb(30, 37, 45);
+    border-radius: 20px;
+    margin: 20px 60px 20px 60px;
+    background-color: rgb(30, 37, 45);
+    color: rgb(202, 209 ,216);
+}
+
+.taskparameters{
+    padding: 0 60px 20px 60px;
+    border: 2px solid rgb(30, 37, 45);
+    border-radius: 20px;
+    margin: 20px 60px 40px 60px;
+    color: rgb(202, 209, 216);
+    background-color: rgb(30, 37, 45);
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
+    margin: 0 20px 0 0;
+    background-color: rgb(78, 101, 113);
+    color: rgb(202, 209, 216);
+    
+}
+
+.allVolume{
+    font-size: 20px;
+}
+
+.stepwork{
+    text-align: center;
+    font-size: 30px
+}
+
+.stepwork{
+    border: 2px solid rgb(30, 37, 45);
+    background-color: rgb(78, 101, 113);
+    border-radius: 20px;
+}
+
+.btnstart{
+    padding: 10px 10px 10px 10px;
+    margin: 20px 10px 0 10px;
+    background-color: rgb(30, 37, 45);
+    color: rgb(202, 209, 216);
+    border-radius: 5px;
+    width: 200px
+}
+
+.btnstart{
+    background-color: rgb(78, 101, 113);
+}
+
+::placeholder {
+    color: rgb(202, 209, 216);
+    
+}
+
+input:invalid {border-color: red;}
+input:valid {border-color: green;}
+
+
+.video{
+    padding-right: 20px;
+}
+
+/*-----------------Модальное окно------------------------*/
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    overflow: auto;
+    visibility:hidden;
+    opacity: 0;
+    transition: opacity 0.7s ease-in 0s;
+}
+.popup {
+    top: 10%;
+    color:rgb(202, 209, 216);
+    left: 0;
+    right: 0;       
+    font-size: 14px;
+    margin: auto;
+    width: 80%;
+    min-width: 200px;
+    max-width: 600px;
+    position: absolute;
+    padding: 15px 20px;
+    border: 1px solid #666;
+    background-color: rgb(30, 37, 45);
+    z-index: 1000;
+    border-radius: 10px;
+    font: 14px/18px 'Tahoma', Arial, sans-serif;
+    box-shadow: 0 0px 14px rgba(0, 0, 0, 0.4);
+}
+.close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(30, 37, 45);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    outline: none;
+}
+.close:before {
+    color: rgb(202, 209, 216);
+    content: "X";
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+.close:hover {
+    background-color: rgb(78, 101, 113);
+}
+#overlay .popup p.zag{margin:20px 0 10px;padding:0 0 6px;color:rgb(202, 209, 216);font-size:16px;font-weight:bold;border-bottom:1px solid rgb(202, 209, 216);}
+
+/*------------------------Модальное окно------------------------*/
+
+.tbl{
+    border-color: rgb(202, 209, 216);
+}
+
+th {
+    font-size: 18px;
+    padding: 10px;
+}
+td {
+    background: rgb(78, 101, 113);
+    padding: 10px;
+}

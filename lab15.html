@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовая работа</title>
+
+    <link rel="stylesheet" href="./style.lab15.css">
+    
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <p class="mainnametask">Разработка скрипта «Головоломка с кувшином для воды»</p>
+        </header>
+
+        <div class="maindescriotion">
+        <p class="heading">Условие задачи</p>
+        <p class="descriptiontask">Для набора из 3 кувшинов с водой емкостью A, B и C литров найдите минимальное количество операций, выполняемых перед тем, как каждый кувшин наберет x, y и z литров. Только кувшин С может полностью заполняться. Операция может быть любой из следующих: кувшин опорожняется, кувшин наполняется, или вода переливается из одного кувшина в другой, пока один из кувшинов не станет пустым или полным. Например, кувшины A, B и C вместимостью 3, 5 и 8 литров, где кувшины A и B вначале пусты, а C имеет полных 8 литров, требуют 2 операций для достижения состояния 0, 3 и 5 литров в кувшины. Создайте функцию, которая, учитывая массив емкостей кувшина [A, B, C] и массив состояний цели [x, y, z], возвращает минимальное количество операций, необходимых для достижения состояния цели. Если введенные данные недействительны или решения нет, верните «Нет решения». Количество воды в кувшине никогда не может превышать вместимость этого кувшина. Общее количество литров в целевом состоянии должно быть равно вместимости кувшина C.</p>
+    </div>
+
+    <div class="taskparameters">
+        <section class="params">
+        <p class="stepwork">Ход работы</p>
+        <p class="allVolume">1. Введите общий объем каждого кувшина:</p>
+        <form>
+            V<sub>1</sub>: <input id="arrAllVolume_1" type = "number" min="0" placeholder="Объем первого кувшина" name = "volumefirstall" >
+            V<sub>2</sub>: <input id="arrAllVolume_2" type = "number" min="0" placeholder="Объем второго кувшина" name = "volumesecondall" >
+            V<sub>3</sub>: <input id="arrAllVolume_3" type = "number" min="0" placeholder="Объем третьего кувшина" name = "volumethridall" >
+        </form>
+        <br>
+
+        <p class="allVolume">2. Введите начальный объем каждого кувшина:</p>
+        <form>
+            V<sub>1</sub>: <input type = "number" min="0" id="arrStartVolume_1" placeholder="Объем первого кувшина" name = "volumefirstall" > 
+            V<sub>2</sub>: <input type = "number" min="0" id="arrStartVolume_2" placeholder="Объем второго кувшина" name = "volumesecondall" > 
+            V<sub>3</sub>: <input  type = "number" min="0" id="arrStartVolume_3" placeholder="Объем третьего кувшина" name = "volumethridall" >
+        </form>
+        <br>
+
+        <p class="allVolume">3. Введите объем каждого кувшина, который необходимо получить:</p>
+        <form>
+            V<sub>1</sub>: <input type = "number" min="0" id="arrResultVolume_1" placeholder="Объем первого кувшина" name = "volumefirstall" > 
+            V<sub>2</sub>: <input type = "number" min="0" id="arrResultVolume_2" placeholder="Объем второго кувшина" name = "volumesecondall" > 
+            V<sub>3</sub>: <input type = "number" min="0" id="arrResultVolume_3" placeholder="Объем третьего кувшина" name = "volumethridall" >
+        </form>
+
+        <button id='btn' class="btnstart">Выполнить</button>
+
+    </section>
+    <section class="video">
+        <p class="stepwork">Способ решения</p>
+        <iframe width="660" height="370" src="https://www.youtube.com/embed/0d4bPCHM8ZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    </div>
+
+    <footer>
+        <div class = "info">
+            <p class="header">Курсовая работа (Лабораторная работа №15)</p>
+            <p class="studentinformation">Выполнил: Кривиков Александр</p>
+        </div>
+    </footer>
+    
+
+
+    <div id="overlay">
+        <div class="popup">
+          <button class="close" title="Закрыть окно" id="swa2"></button>
+          <p class="zag">Решение задачи</p>
+          <p>Матрица возможных ходов</p>
+          <table id="table" class="tbl"></table>
+          <p class="conclusion">Вывод</p>
+          <p id="result"></p>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="./js.lab15.js"></script>
+
+</html>
