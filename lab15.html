@@ -20,39 +20,38 @@
         </div>
 
         <div class="taskparameters">
-            <section class="params">
-                <p class="stepwork">Ход работы</p>
-                <p class="allVolume">1. Введите общий объем каждого кувшина:</p>
-                <form>
-                    V<sub>1</sub>: <input id="arrAllVolume_1" type = "number" min="0" placeholder="Объем первого кувшина" name = "volumefirstall" >
-                    V<sub>2</sub>: <input id="arrAllVolume_2" type = "number" min="0" placeholder="Объем второго кувшина" name = "volumesecondall" >
-                    V<sub>3</sub>: <input id="arrAllVolume_3" type = "number" min="0" placeholder="Объем третьего кувшина" name = "volumethridall" >
-                </form>
-                <br>
+                <section class="params">
+                    <p class="stepwork">Ход работы</p>
+                        <form class="form1">
+                            <p class="allVolume">1. Введите общий объем каждого кувшина:</p>
+                            <label for="arrAllVolume_1">V<sub>1</sub>:</label> 
+                            <input id="arrAllVolume_1" type = "number" min="0" placeholder="Объем первого кувшина" name = "volumefirstall" >
+                            <label for="arrAllVolume_2">V<sub>2</sub>:</label> 
+                            <input id="arrAllVolume_2" type = "number" min="0" placeholder="Объем второго кувшина" name = "volumesecondall" >
+                            <label for="arrAllVolume_3">V<sub>3</sub>:</label> 
+                            <input id="arrAllVolume_3" type = "number" min="0" placeholder="Объем третьего кувшина" name = "volumethridall" >
+                        </form>
+                        <br>
 
-                <p class="allVolume">2. Введите начальный объем каждого кувшина:</p>
-                <form>
-                    V<sub>1</sub>: <input type = "number" min="0" id="arrStartVolume_1" placeholder="Объем первого кувшина" name = "volumefirstall" > 
-                    V<sub>2</sub>: <input type = "number" min="0" id="arrStartVolume_2" placeholder="Объем второго кувшина" name = "volumesecondall" > 
-                    V<sub>3</sub>: <input  type = "number" min="0" id="arrStartVolume_3" placeholder="Объем третьего кувшина" name = "volumethridall" >
-                </form>
-                <br>
-
-                <p class="allVolume">3. Введите объем каждого кувшина, который необходимо получить:</p>
-                    <form>
-                        V<sub>1</sub>: <input type = "number" min="0" id="arrResultVolume_1" placeholder="Объем первого кувшина" name = "volumefirstall" > 
-                        V<sub>2</sub>: <input type = "number" min="0" id="arrResultVolume_2" placeholder="Объем второго кувшина" name = "volumesecondall" > 
-                        V<sub>3</sub>: <input type = "number" min="0" id="arrResultVolume_3" placeholder="Объем третьего кувшина" name = "volumethridall" >
-                    </form>
-                <div class="btn_sect">
-                    <button id='btn' class="btnstart">Выполнить</button>
-                    <button class="btnstart" onclick="window.location.href = 'https://habr.com/ru/sandbox/27416/';">Описание алгоритма</button>
-                </div>
-            </section>
+                        <form class="form2">
+                            <p class="allVolume">2. Введите объем каждого кувшина, который необходимо получить:</p>
+                            <label for="arrResultVolume_1">V<sub>1</sub>:</label> 
+                            <input type = "number" min="0" id="arrResultVolume_1" placeholder="Объем первого кувшина" name = "volumefirstall" > 
+                            <label for="arrResultVolume_2">V<sub>2</sub>:</label> 
+                            <input type = "number" min="0" id="arrResultVolume_2" placeholder="Объем второго кувшина" name = "volumesecondall" > 
+                            <label for="arrResultVolume_3">V<sub>3</sub>:</label>
+                            <input type = "number" min="0" id="arrResultVolume_3" placeholder="Объем третьего кувшина" name = "volumethridall" >
+                        </form>
+                    <div class="btn_sect">
+                        <button id='btn' class="btnstart">Выполнить</button>
+                        <button class="btnstart" onclick="window.location.href ='https://habr.com/ru/sandbox/27416/';">Описание алгоритма</button>
+                    </div>
+                </section>
+            
 
             <section class="video">
                 <p class="stepwork">Способ решения</p>
-                <iframe width="660" height="370" src="https://www.youtube.com/embed/0d4bPCHM8ZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="310" src="https://www.youtube.com/embed/0d4bPCHM8ZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </section>
         </div>
 
@@ -72,7 +71,7 @@
 
         <div id="overlay">
             <div class="popup">
-                <button class="close" title="Закрыть окно" id="swa2"></button>
+                <button class="close" title="Закрыть окно" id="modalClose"></button>
                 <p class="zag">Решение задачи</p>
                 <p>Матрица возможных ходов</p>
                 <table id="table" class="tbl"></table>
