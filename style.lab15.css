@@ -19,20 +19,17 @@ header{
     margin: 10px 10px 0 10px;
     color: rgb(202, 209, 216);
     border: 1px solid rgb(30, 37, 45);
-    border-radius: 20px;
-       
+    border-radius: 20px;     
 }
 
 footer{
     background:rgb(30, 37, 45);
-
     color: rgb(202, 209, 216);
     width: 99%;
     margin: 0 auto;
     border: 1px solid rgb(30, 37, 45);
     border-radius: 20px;
     margin-bottom: 10px;
-    
 }
 
 .main{
@@ -74,7 +71,7 @@ footer{
     color: rgb(202, 209, 216);
     background-color: rgb(30, 37, 45);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 input{
@@ -83,11 +80,12 @@ input{
     margin: 0 20px 0 0;
     background-color: rgb(78, 101, 113);
     color: rgb(202, 209, 216);
-    
+    margin-bottom: 10px;
+    font-size: 15px;  
 }
 
 .allVolume{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .stepwork{
@@ -107,11 +105,15 @@ input{
     background-color: rgb(30, 37, 45);
     color: rgb(202, 209, 216);
     border-radius: 5px;
-    width: 200px
+    width: 200px;
+    font-size: 15px;
+    
+
 }
 
 .btnstart{
     background-color: rgb(78, 101, 113);
+    margin-right: 20px;
 }
 
 ::placeholder {
@@ -119,8 +121,13 @@ input{
     
 }
 
-input:invalid {border-color: red;}
-input:valid {border-color: green;}
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
 
 
 .video{
@@ -142,6 +149,7 @@ input:valid {border-color: green;}
     opacity: 0;
     transition: opacity 0.7s ease-in 0s;
 }
+
 .popup {
     text-align: center;
     top: 10%;
@@ -163,6 +171,7 @@ input:valid {border-color: green;}
     font: 14px/18px 'Tahoma', Arial, sans-serif;
     box-shadow: 0 0px 14px rgba(0, 0, 0, 0.4);
 }
+
 .close {
     top: 10px;
     right: 10px;
@@ -176,6 +185,7 @@ input:valid {border-color: green;}
     cursor: pointer;
     outline: none;
 }
+
 .close:before {
     color: rgb(202, 209, 216);
     content: "X";
@@ -185,10 +195,19 @@ input:valid {border-color: green;}
     text-decoration: none;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
 }
+
 .close:hover {
     background-color: rgb(78, 101, 113);
 }
-#overlay .popup p.zag{margin:20px 0 10px;padding:0 0 6px;color:rgb(202, 209, 216);font-size:16px;font-weight:bold;border-bottom:1px solid rgb(202, 209, 216);}
+
+#overlay .popup p.zag{
+    margin:20px 0 10px;
+    padding:0 0 6px;
+    color:rgb(202, 209, 216);
+    font-size:16px;
+    font-weight:bold;
+    border-bottom:1px solid rgb(202, 209, 216);
+}
 
 /*------------------------Модальное окно------------------------*/
 
@@ -224,3 +243,4 @@ img{
     justify-content: space-between;
     margin-top: 10px;
 }
+
