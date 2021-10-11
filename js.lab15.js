@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error();
             }
 
-            if((arrResult[i] % 10 !=0) || (arrAccess[i] % 10 !=0)){
+            if((arrResult[i] % 1 !=0) || (arrAccess[i] % 1 !=0)){
                 alert("Не правильно указаны параметры объема кувшина. Объем не может быть не целым числом...");
                 throw new Error();
             }
